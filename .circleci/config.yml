@@ -4,8 +4,8 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      #- image: docker:17.05.0-ce-git
-      - image: cimg/node:21.7.1
+      - image: docker:17.05.0-ce-git
+      - image: node:18-alpine #cimg/node:21.7.1
     steps:
       - checkout
       - setup_remote_docker
