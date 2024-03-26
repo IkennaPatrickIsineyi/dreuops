@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: cimg/base:2022.06
+      - image: docker:17.05.0-ce-git
       - image: node:18-alpine #cimg/node:21.7.1
     steps:
       - checkout
@@ -15,6 +15,9 @@ jobs:
       - run:
           name: update-npm
           command: 'apk add --update nodejs-current' #'sudo npm install -g npm@5'
+      - run:
+          name: node version
+          command: node --version
       - run:
           name: Clear npm Cache
           command: npm cache clean --force
