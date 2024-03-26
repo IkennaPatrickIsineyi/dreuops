@@ -16,6 +16,9 @@ jobs:
           name: update-npm
           command: 'apk add --update nodejs-current' #'sudo npm install -g npm@5'
       - run:
+          name: Clear npm Cache
+          command: npm cache clean --force
+      - run:
           name: Install dependencies
           command: |
             npm install
