@@ -24,6 +24,9 @@ jobs:
           name: Install nvm
           command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
       - run: touch ~/.bash_profile
+      - run: echo "export NVM_NODEJS_ORG_MIRROR=https://unofficial-builds.nodejs.org/download/release" >> .profile
+      - run: echo "nvm_get_arch() { nvm_echo \"x64-musl\"; }" >> .profile
+      - run: source .profile 
       #- run: . ~/app/.nvm/nvm.sh 
       - run: nvm install 18.x 
       #- run: nvm alias default 18.x
