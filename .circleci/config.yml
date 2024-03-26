@@ -10,6 +10,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - run:
           name: Install dependencies
           command: |
             npm install
