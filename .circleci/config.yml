@@ -2,15 +2,13 @@ version: 2
 
 jobs:
   build:
-    working_directory: .
+    working_directory: ~/app
     docker:
       - image: docker:17.05.0-ce-git
       - image: circleci/node:latest
     steps:
       - checkout
-      - setup_remote_docker
-      - run: apt-get install -y sudo # https://discuss.circleci.com/t/sudo-command-not-found/14208/4
-      - run: ls -al /bin/sh && sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh && ls -al /bin/sh
+      - setup_remote_docker 
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@5'
