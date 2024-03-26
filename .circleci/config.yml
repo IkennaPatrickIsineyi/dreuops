@@ -19,9 +19,11 @@ jobs:
       - run: 
           name: install bash
           command: 'apk add --update bash'
+      - run: touch ~/.bash_profile
       - run:
           name: Install nvm
           command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+      - run: touch ~/.bash_profile
       #- run: . ~/app/.nvm/nvm.sh 
       - run: nvm install 18.x 
       #- run: nvm alias default 18.x
