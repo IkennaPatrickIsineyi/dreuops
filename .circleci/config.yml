@@ -22,9 +22,9 @@ jobs:
       - run:
           name: Install nvm
           command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-      - run: . $NVM_DIR/nvm.sh \
-      - run: nvm install 18.x \
-      - run: nvm alias default $NODE_VERSION \
+      - run: . ~/.nvm/nvm.sh 
+      - run: nvm install 18.x 
+      - run: nvm alias default 18.x
       - run: nvm use default 
       
       #- run:
