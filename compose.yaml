@@ -1,6 +1,6 @@
 services:
-  first-docker:
-    image: node:18-alpine
+  app:
+    image: first-docker:latest
     build:
       args:
         - NODE_ENV=development
