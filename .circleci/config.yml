@@ -13,7 +13,7 @@ jobs:
       #- run: ls -al /bin/sh && sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh && ls -al /bin/sh
       - run:
           name: update-npm
-          command: 'apk add --update nodejs npm' #'sudo npm install -g npm@5'
+          command: 'apk add --update npm' #'sudo npm install -g npm@5'
       - run:
           name: Install dependencies
           command: |
