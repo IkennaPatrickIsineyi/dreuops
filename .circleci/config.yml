@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   build:
-    #working_directory: ~
+    working_directory: ~/app
     docker:
       - image: docker:17.05.0-ce-git
       - image: circleci/node:latest
@@ -20,8 +20,7 @@ jobs:
           command: npm cache clean --force
       - run:
           name: Install dependencies
-          command: |
-            npm install
+          command: npm install
       
       - run:
           name: Deploying to Docker
