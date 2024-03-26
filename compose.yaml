@@ -1,5 +1,5 @@
 services:
-  app:
+  first-docker:
     image: node:18-alpine
     build:
       args:
