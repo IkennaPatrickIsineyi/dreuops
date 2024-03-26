@@ -4,31 +4,31 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: docker:17.05.0-ce-git
+      #- image: docker:17.05.0-ce-git
       - image: cimg/node:21.7.1
     steps:
       - checkout
       - setup_remote_docker
       #- run: apt install -y sudo # https://discuss.circleci.com/t/sudo-command-not-found/14208/4
       #- run: ls -al /bin/sh && sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh && ls -al /bin/sh
-      - run: apk update
-      - run: apk upgrade
-      - run: 
-          name: install curl
-          command: 'apk add --update curl'
-      - run: 
-          name: install bash
-          command: 'apk add --update bash'
-      - run: touch ~/.bash_profile
-      - run:
-          name: Install nvm
-          command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-      - run: touch ~/.bash_profile
-      - run: echo "export NVM_NODEJS_ORG_MIRROR=https://unofficial-builds.nodejs.org/download/release" >> .profile
-      - run: echo "nvm_get_arch() { nvm_echo \"x64-musl\"; }" >> .profile
-      - run: source .profile 
+      #- run: apk update
+      #- run: apk upgrade
+      #- run: 
+      #    name: install curl
+      #    command: 'apk add --update curl'
+      #- run: 
+      #    name: install bash
+      #    command: 'apk add --update bash'
+      #- run: touch ~/.bash_profile
+      #- run:
+      #    name: Install nvm
+      #    command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+      #- run: touch ~/.bash_profile
+      #- run: echo "export NVM_NODEJS_ORG_MIRROR=https://unofficial-builds.nodejs.org/download/release" >> .profile
+      #- run: echo "nvm_get_arch() { nvm_echo \"x64-musl\"; }" >> .profile
+      #- run: source .profile 
       #- run: . ~/app/.nvm/nvm.sh 
-      - run: nvm install 18.x 
+      #- run: nvm install 18.x 
       #- run: nvm alias default 18.x
       #- run: nvm use default 
       
