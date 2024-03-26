@@ -49,5 +49,5 @@ jobs:
           name: Deploying to Docker
           command: |
             docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PASSWORD
-            docker tag first-docker:local $DOCKER_HUB_USER_ID/first-docker:latest
+            docker tag app $DOCKER_HUB_USER_ID/first-docker:latest
             docker push $DOCKER_HUB_USER_ID/first-docker:latest
