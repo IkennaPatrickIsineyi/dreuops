@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/app
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: cimg/base:2022.06
       - image: node:18-alpine #cimg/node:21.7.1
     steps:
       - checkout
