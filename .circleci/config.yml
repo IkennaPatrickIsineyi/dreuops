@@ -48,6 +48,6 @@ jobs:
       - run:
           name: Deploying to Docker
           command: |
-            docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PASSWORD
+            docker login -u $DOCKER_HUB_USER_ID -p
             docker tag first-docker $DOCKER_HUB_USER_ID/first-docker
             docker push $DOCKER_HUB_USER_ID/first-docker
