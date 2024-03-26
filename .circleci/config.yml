@@ -17,7 +17,7 @@ jobs:
           command: 'apk add --update curl'
       - run:
           name: Install nvm
-          command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+          command: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh
       - run:
           name: Install desired Node.js version
           command: nvm install 18.x  # Replace with your desired version
