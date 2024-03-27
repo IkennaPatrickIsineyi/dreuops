@@ -3,29 +3,33 @@ version: 2
 jobs:
   build:
     working_directory: ~/app
-    docker: 
-      - image: cimg/node:21.7.1
+    docker:
+      - image:  cimg/base:2022.09
+        auth:
+          username: $DOCKER_HUB_USER_ID
+          password: $DOCKER_HUB_PASSWORD
+      #- image: cimg/node:21.7.1
     steps:
       - checkout
       - setup_remote_docker 
+      - restore_cache:
+          keys:
+            - v1-{{ .Branch }}
+          paths:
+            - /caches/app.tar
       - run:
-          name: node version
-          command: node --version
-      - run:
-          name: Clear npm Cache
-          command: npm cache clean --force
-      - run:
-          name: Install dependencies
-          command: npm install
+          name: Load Docker image layer cache
+          command: |
+            set +o pipefail
+            docker load -i /caches/app.tar | true
       #- run:
-      #    name: Build the docker services
-      #    command: | 
-      #      TAG=0.1.$CIRCLE_BUILD_NUM
-      #     docker build -t $DOCKER_HUB_USER_ID/first-docker .
+      #    name: Run tests
+      #    command: |
+      #      docker-compose -f ./docker-compose.test.yml up 
       - run:
           name: Deploying to Docker
           command: |
             TAG=0.1.$CIRCLE_BUILD_NUM
             docker build -t $DOCKER_HUB_USER_ID/first-docker:$TAG .
-            docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PASSWORD
+            echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USER_ID --password-stdin
             docker push $DOCKER_HUB_USER_ID/first-docker:$TAG 
