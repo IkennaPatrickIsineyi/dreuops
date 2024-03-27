@@ -1,11 +1,15 @@
 services:
   app:
-    image: first-docker:local
+    #image: node:18-alpine
+    image: node:18-alpine
+    container_name: first-docker
     build:
       args:
         - NODE_ENV=development
       context: .
     command: npm run dev
+    depends_on:
+      - mysql
     restart: always
     ports:
       - "3000:3000"
