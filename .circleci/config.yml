@@ -19,7 +19,7 @@ jobs:
           command: npm install
       - run:
           name: Build the services
-          command: docker build -t first-docker ./app
+          command: docker build -t first-docker ~/app
       - run:
           name: Deploying to Docker
           command: |
