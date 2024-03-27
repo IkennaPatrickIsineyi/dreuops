@@ -20,6 +20,7 @@ function init() {
             db.run(
                 'CREATE TABLE IF NOT EXISTS todo_items (id varchar(36), name varchar(255), completed boolean)',
                 (err, result) => {
+                    console.log('created sqlite db', err)
                     if (err) return rej(err);
                     acc();
                 },
@@ -91,7 +92,7 @@ async function updateItem(id, item) {
             },
         );
     });
-} 
+}
 
 async function removeItem(id) {
     return new Promise((acc, rej) => {
